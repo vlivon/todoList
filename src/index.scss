@@ -1,29 +1,41 @@
 .main {
-    margin: 20px auto;
-    border-radius: 20px;
-    min-width: 1080px;
-    
-    button {
-        cursor: pointer;
-    }
-
-    h1 {
-        font-family: Padauk;
-    }
-
-    input {
-        cursor: pointer;
-    }
-
+    max-width: 1080px;
+    margin: 50px auto;
     .tasks {
-        align-items: center;
-        display: flex;
-        padding: 10px auto;
-        margin-top: 10px;
+        
+        // input {
+        //     cursor: pointer;
+        // }
+
+        p {
+            margin-left: 5px;
+        }
 
         button {
-            margin-left: 10px;
-            cursor: pointer;
+            margin-left: 20px;
         }
     }
+}
+
+.header {
+    input {
+        margin-left: 5px;
+    }
+    button {
+        cursor: pointer;
+        margin-left: 10px;
+    }
+}
+
+.items {
+    display: flex;
+    align-items: center;
+
+    .but {
+        cursor: pointer;
+    }
+    .inp {
+        cursor: pointer;
+    }
+
 }
