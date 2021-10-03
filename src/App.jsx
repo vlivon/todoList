@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import store from './utils/store';
 import Task from './components/Task';
@@ -81,6 +82,7 @@ function App () {
           /> 
         ))}
       </div>
+
     </div>
   )
 }
