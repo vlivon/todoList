@@ -1,10 +1,12 @@
 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import storeAPI from '../utils/storeAPI';
 
 
-const Task = ({checked, id, title, onChangeChecked, onDelTask, onChangeTitle }) => {
+const Task = ({task, cardId}) => {
     const [open, setOpen] = useState(false);
-    const [input, setInput] = useState(title);
+    const [input, setInput] = useState(task.text);
+    const {onChangeChecked, onDeleteTask, onChangeText} = useContext(storeAPI);
 
     const onOpen = () => {
         setOpen(prev => !prev)
@@ -15,20 +17,19 @@ const Task = ({checked, id, title, onChangeChecked, onDelTask, onChangeTitle }) 
     }
     return (
         <div className="items">
-            <input className="inp" onChange={() => onChangeChecked(id)} type="checkbox" checked={checked} />
+            <input onChange={() => onChangeChecked(task.id, cardId)} type="checkbox" checked={task.checked} />
             {!open ?
                 <>
-                    <p>{title}</p>
+                    <p>{task.text}</p>
                     <button onClick={onOpen} className="but">Change task</button>
                 </>
             :
                 <>
                     <input onChange={onChangeInput} value={input} placeholder="Enter task here..."></input> 
-                    <button onClick={() => {onChangeTitle(input, id); setOpen(prev => !prev)}} className="but">End change</button>
+                    <button onClick={() => {onChangeText(input, task.id, cardId); setOpen(prev => !prev)}} className="but">End change</button>
                 </>   
             }
-            
-            <button className="but" onClick={() => onDelTask(id)}>Delete task</button>
+            <button className="but" onClick={() => onDeleteTask(task.id, cardId)}>Delete task</button>
         </div>
     )
 }
